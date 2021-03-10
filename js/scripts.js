@@ -53,4 +53,10 @@
     navbarCollapse();
     // Collapse the navbar when page is scrolled
     $(window).scroll(navbarCollapse);
+    // Sends Email
+    $(".clickMe").click(function () {
+        const send_cv = async () =>
+            await(await fetch(`./netlify/functions/send_cv/send_cv?mailstr=${document.getElementById("inputEmail").value}`))
+        send_cv();
+    });
 })(jQuery); // End of use strict
