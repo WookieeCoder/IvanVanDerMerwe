@@ -86,9 +86,10 @@
         if(validateEmail(email)) {
             const send_cv = async () =>
                 await(await fetch(`/.netlify/functions/send_cv?mailstr=${email}`))
+            emailIsValid()
             send_cv();
         } else {
-            alert('not an valid email');
+            emailIsNotValid()
         }
     });
 })(jQuery); // End of use strict
