@@ -53,10 +53,20 @@
     navbarCollapse();
     // Collapse the navbar when page is scrolled
     $(window).scroll(navbarCollapse);
+    //Test for valid email
+    var validateEmail = function (email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
     // Sends Email
     $(".clickMe").click(function () {
-        const send_cv = async () =>
-            await(await fetch(`/.netlify/functions/send_cv?mailstr=${document.getElementById("inputEmail").value}`))
-        send_cv();
+        let email = document.getElementById("inputEmail").value
+        if(validateEmail(email)) {
+            const send_cv = async () =>
+                await(await fetch(`/.netlify/functions/send_cv?mailstr=${email}`))
+            send_cv();
+        } else {
+            alert('not an valid email')
+        }
     });
 })(jQuery); // End of use strict
