@@ -4029,7 +4029,6 @@ input[type=button].btn-block {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
 }
 .navbar .container,
 .navbar .container-fluid,
@@ -10364,7 +10363,7 @@ body {
   box-sizing:border-box;
   color:white;  
   text-align:center;
-  background:rgba(0,0,0,.6);
+  background:rgba(0,0,0,1);
   overflow:hidden;
   box-sizing:border-box;
   transition:height .2s;
@@ -10373,17 +10372,16 @@ body {
 #notifyType:before{
   display:block;
   margin-top:15px; 
-  
 }
 
 .active{  
-  height:50px;
+  height:72px;
 }
 
 .success:before{
-  Content:"Aww Yeaaaaa! Success!";
+  Content:"Successful check your email inbox.";
 }
 
 .failure:before{
-  Content:"Oh no! Something didn't go as planned :(";
+  Content:"Failure please check email :(";
 }
