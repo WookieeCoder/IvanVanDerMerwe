@@ -58,6 +58,28 @@
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     }
+    //Display is email is valid or not
+
+    var emailIsValid = function () {
+        $(".notify").toggleClass("active");
+        $("#notifyType").toggleClass("success");
+        
+        setTimeout(function(){
+          $(".notify").removeClass("active");
+          $("#notifyType").removeClass("success");
+        },2000);
+      };
+      
+      var emailIsNotValid = function () {
+        $(".notify").addClass("active");
+        $("#notifyType").addClass("failure");
+        
+        setTimeout(function(){
+          $(".notify").removeClass("active");
+          $("#notifyType").removeClass("failure");
+        },2000);
+      };
+
     // Sends Email
     $(".clickMe").click(function () {
         let email = document.getElementById("inputEmail").value
@@ -66,7 +88,7 @@
                 await(await fetch(`/.netlify/functions/send_cv?mailstr=${email}`))
             send_cv();
         } else {
-            alert('not an valid email')
+            alert('not an valid email');
         }
     });
 })(jQuery); // End of use strict
