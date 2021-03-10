@@ -88,6 +88,7 @@
                 await(await fetch(`/.netlify/functions/send_cv?mailstr=${email}`))
             emailIsValid()
             send_cv();
+            document.getElementById("inputEmail").value = "";
         } else {
             emailIsNotValid()
         }
